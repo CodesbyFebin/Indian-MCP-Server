@@ -1,0 +1,15 @@
+{
+  "name": "@mcpserver-os/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "prettier --check src",
+    "typecheck": "tsc --noEmit"
+  }
+}
