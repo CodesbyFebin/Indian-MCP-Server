@@ -18,14 +18,17 @@ app.get('/api/v1', async () => ({
   capabilities: ['servers', 'policies', 'approvals', 'audit'],
 }));
 
-app.get<{ Reply: { example: Organization } }>('/api/v1/contracts/example', async () => ({
-  example: {
-    id: 'example',
-    name: 'Example Organization',
-    slug: 'example',
-    createdAt: new Date().toISOString(),
-  },
-}));
+app.get<{ Reply: { example: Organization } }>(
+  '/api/v1/contracts/example',
+  async () => ({
+    example: {
+      id: 'example',
+      name: 'Example Organization',
+      slug: 'example',
+      createdAt: new Date().toISOString(),
+    },
+  }),
+);
 
 const port = Number(process.env.PORT ?? 3001);
 const host = process.env.HOST ?? '0.0.0.0';

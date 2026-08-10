@@ -9,7 +9,13 @@ app.get('/health', async () => ({
   version: '0.1.0',
 }));
 
-app.post<{ Reply: { jsonrpc: string; error?: { code: number; message: string }; server?: McpServer } }>('/mcp', async (_request, reply) => {
+app.post<{
+  Reply: {
+    jsonrpc: string;
+    error?: { code: number; message: string };
+    server?: McpServer;
+  };
+}>('/mcp', async (_request, reply) => {
   return reply.code(501).send({
     jsonrpc: '2.0',
     error: {
