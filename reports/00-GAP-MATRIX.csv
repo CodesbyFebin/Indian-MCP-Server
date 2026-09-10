@@ -1,22 +1,8 @@
-Component,Current State,Required State,Gap,Notes
-Repository Identity,Verified (kilo/orbital-eagle-zbx branch),Verified,None,Correct branch checked out
-Stack,Partially Verified,Verified,Missing PostgreSQL/Redis/Docker,Need to install dependencies
-Next.js App (web),Verified,Verified,None,Next.js 13+ App Router confirmed
-Next.js App (app),Verified,Verified,None,Next.js 13+ App Router confirmed
-TurboRepo Structure,Verified,Verified,None,Monorepo structure confirmed
-PII Redaction Middleware,Implemented,Implemented,None,pii-redact-middleware.ts and services/api/lib/middleware/pii-redact.ts present
-UPI Sandbox Integration,Implemented,Implemented,None,upi-sandbox-integration.py present
-MCP Server Main,Implemented,Implemented,None,services/mcp-server/main.py present
-Services Directory,Implemented,Verified,None,All expected services present (api, gateway, mcp-server, etc.)
-Packages Directory,Partially Implemented,Verified,Missing some packages,Have contracts, evidence, auth, design-tokens, registry; missing policy, security as packages (may be in services)
-Database Schema,Unknown,Verified,Unknown,Need to check Prisma schema
-Migrations,Unknown,Verified,Unknown,Need to check migration history
-Authentication System,Unknown,Verified,Unknown,Need to verify implementation
-Authorization System (RBAC),Unknown,Verified,Unknown,Need to verify implementation
-Deployment Engine,Unknown,Verified,Unknown,Need to verify implementation
-Gateway Implementation,Unknown,Verified,Unknown,Need to verify implementation
-Evidence Ledger,Unknown,Verified,Unknown,Need to verify implementation
-Secret Vault,Unknown,Verified,Unknown,Need to verify implementation
-Observability,Unknown,Verified,Unknown,Need to verify implementation
-Security Center,Unknown,Verified,Unknown,Need to verify implement
-India Evidence Pack,Partially Implemented,Verified,Missing components,PII redaction and UPI sandbox implemented; others need implementation
+Component,Current Status,Required Status,Gap,Priority
+Repository Structure,Monolithic,apps/services/packages,High,P0
+Database Schema,Unknown,PostgreSQL+RLS,High,P0
+Evidence Ledger,Missing,Tamper-evident chain,High,P0
+Gateway Plane,Unknown,MCP Transport+Policy,High,P0
+Secret Vault,Unknown,Provider-neutral interface,High,P0
+CI/CD,Pending,GitHub Actions+Lint/Test,Medium,P1
+Documentation,Partial,README+ARCHITECTURE,Medium,P1
