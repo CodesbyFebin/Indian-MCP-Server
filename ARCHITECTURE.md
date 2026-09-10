@@ -4,6 +4,17 @@
 **Target:** app.mcpserver.in
 **Architecture:** Next.js App Router + TypeScript + PostgreSQL + Workers + MCP Gateway + Docker
 
+> **Repository:** `CodesbyFebin/Indian-MCP-Server` (app.mcpserver.in control plane)
+> **Parent Repository:** `CodesbyFebin/MCP-SERVERS` (www.mcpserver.in public website)
+
+## Repository Boundaries
+
+| Domain | Repository | Purpose |
+|--------|-----------|---------|
+| `www.mcpserver.in` | `CodesbyFebin/MCP-SERVERS` | Public website, SEO, docs, server discovery, evidence ledger |
+| `app.mcpserver.in` | `CodesbyFebin/Indian-MCP-Server` (THIS REPO) | Control plane, deployments, gateway, security, runtime |
+| Reference sources | `CodesbyFebin/mcp-servers-master`, `CodesbyFebin/MCP-SERVER` | Migration/reference; extract content, do not make canonical |
+
 ---
 
 ## 1. Canonical Repository Structure

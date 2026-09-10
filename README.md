@@ -4,6 +4,72 @@ Evidence-First AI Infrastructure Control Plane for Model Context Protocol
 
 > **MCPServer OS — Evidence-First Infrastructure for Model Context Protocol. Deploy verified MCP workloads, enforce zero-trust policy, observe every interaction, and produce tamper-evident operational evidence from infrastructure you control.**
 
+## Repository Architecture
+
+This repository (`Indian-MCP-Server`) is the **`app.mcpserver.in`** side of the MCPServer platform. It owns execution: the control plane, deployments, gateway, policy, security, evidence dashboard, and runtime.
+
+```text
+CodesbyFebin/MCP-SERVERS
+        │
+        └── www.mcpserver.in
+             │
+             ├── Homepage
+             ├── /servers
+             ├── /servers/[slug]
+             ├── /evidence
+             ├── /docs
+             ├── /glossary
+             ├── /blog
+             ├── /integrations
+             ├── /compare
+             ├── /security
+             ├── /learn
+             ├── /troubleshooting
+             ├── /pillars
+             ├── /registry.json
+             ├── /api/servers.json
+             ├── /mcp-registry.json
+             ├── /llms.txt
+             ├── /llms-full.txt
+             └── sitemap(s)
+
+                    │
+                    │ Verified server identity
+                    │ Evidence + provenance
+                    │ Deploy intent
+                    ▼
+
+CodesbyFebin/Indian-MCP-Server
+        │
+        └── app.mcpserver.in
+             │
+             ├── Dashboard
+             ├── Deployments
+             ├── Gateway
+             ├── Policies
+             ├── Security
+             ├── Evidence
+             ├── Incidents
+             ├── Audit
+             └── Runtime
+```
+
+### Repository Mapping
+
+| Domain / Purpose | Canonical Repository | Role |
+|---|---|---|
+| **`www.mcpserver.in`** | **`CodesbyFebin/MCP-SERVERS`** | Main public website, indexed pages, MCP server discovery, Evidence Ledger, docs, glossary, blog, integrations, SEO/AEO/GEO |
+| **`app.mcpserver.in`** | **`CodesbyFebin/Indian-MCP-Server`** (THIS REPO) | MCPServer OS, control plane, deployments, gateway, policy, security, evidence dashboard, runtime |
+| `mcp-servers-master` | `CodesbyFebin/mcp-servers-master` | Migration/reference source; extract useful pages/data/components, then retire/archive |
+| `MCP-SERVER` | `CodesbyFebin/MCP-SERVER` | Older experimental/reference source; mine anything useful but do not make it canonical |
+
+### Key Rules
+
+1. **`MCP-SERVERS` owns public search equity. `Indian-MCP-Server` owns execution.**
+2. **Do not merge:** Do NOT simply copy pages from MCP-SERVERS, mcp-servers-master, or MCP-SERVER. Public content (SEO, discovery pages, docs) belongs in MCP-SERVERS. Runtime code belongs here.
+3. **Preserve URLs:** Build an indexed-URL preservation ledger before migration. Classify every existing URL as: `KEEP`, `REBUILD`, `EXACT_REDIRECT`, `NOINDEX`, `410`, or `REVIEW`.
+4. **Canonical deploy CTA:** Align every verified server page on `www.mcpserver.in/servers/[slug]` with a canonical deploy CTA: `"Deploy with MCPServer OS" → app.mcpserver.in/deploy/[signed-intent]`
+
 ## Overview
 
 MCPServer OS is a self-hosted control plane for managing Model Context Protocol (MCP) infrastructure with an emphasis on evidence, verification, and operational integrity rather than compliance certifications.
@@ -84,6 +150,8 @@ Tamper-evident hash chain with explicit evidence types:
 - Evidence review and verification workflows
 
 ## Getting Started
+
+> **Note:** This repository (`Indian-MCP-Server`) is the **`app.mcpserver.in` control plane**. For the public website (`www.mcpserver.in`), see [`CodesbyFebin/MCP-SERVERS`](https://github.com/CodesbyFebin/MCP-SERVERS).
 
 ### Prerequisites
 - Node.js 18+
@@ -189,6 +257,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow, coding standard
 ## License
 
 Apache 2.0 License - See [LICENSE](LICENSE) for details.
+
+## Repository Boundaries
+
+- **`www.mcpserver.in`** (public website, SEO, docs, server discovery): [`CodesbyFebin/MCP-SERVERS`](https://github.com/CodesbyFebin/MCP-SERVERS)
+- **`app.mcpserver.in`** (control plane, deployments, runtime): [`CodesbyFebin/Indian-MCP-Server`](https://github.com/CodesbyFebin/Indian-MCP-Server) (this repository)
+
+Cross-repository references must be explicit: verified server definitions on `www.mcpserver.in` link to signed deploy intents on `app.mcpserver.in`.
 
 ## Disclaimer
 
