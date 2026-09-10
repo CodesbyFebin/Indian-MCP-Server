@@ -1,0 +1,13 @@
+Component,Current Status,Required Status,Gap,Priority
+Repository Structure,Partially Implemented,Canonical TurboRepo (apps/services/packages),Structure exists in app-mcpserver-in/ but not normalized to root,High,P0
+Database Schema,Unknown,Needs implementation with PostgreSQL + Prisma + RLS,P0 gap identified in Phase 2,I,H,P0
+Evidence Ledger,Partially Implemented (schema defined),Full implementation with storage and review logic,Schema exists in packages/evidence/src/types.ts; storage/review/generation pending,High,P0
+Gateway Plane,Partially Implemented,Full MCP transport + JSON-RPC validation + Tool Policy,Services exist but full gateway implementation pending,High,P0
+Secret Vault,Unknown,Needs implementation with Vault/AWS Secrets Manager,P0 gap identified in Phase 6,I,H,P0
+CI/CD,Missing,Needs GitHub Actions with lint/test/typecheck/build,Not yet implemented in .github/workflows/,Medium,P1
+RBI Technical Control Profile,Defined (8 controls in types.ts),Full implementation of control profile mapping,CONTROL_DEFINITIONS exist; mapping and evidence collection pending,Medium,P2
+India Evidence Pack,Partially Implemented,Complete coverage of all India-specific evidence,PII redaction and UPI sandbox implemented; DPDP/RBI/UIDAI/IndiaAI profiles pending,P1,P0
+Observability,Unknown,Needs implementation with OpenTelemetry,Partially implemented in services/observability/,Medium,P1
+Identity & Access,Unknown,Needs implementation with JWT auth and RBAC,MCP server has auth/middleware.py; full auth mesh pending,High,P0
+Deployment Engine,Unknown,Needs full deployment state machine,Docker config exists; full engine pending,High,P0
+Security Center,Unknown,Needs implementation with policy violations tracking,Partially implemented in services/security/,Medium,P1
