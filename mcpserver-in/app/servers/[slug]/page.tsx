@@ -42,11 +42,19 @@ export async function generateMetadata({
   const server = await getServer(slug);
 
   if (!server) {
-    return { title: 'Server Not Found | MCPServer.in' };
+    return {
+      title: 'Server Not Found | MCPServer.in',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
   }
 
+  const isIndexable = server.status === 'active' && server.verified;
+
   return {
-    title: `${server.name} | Verified MCP Server | MCPServer.in`,
+    title: `${server.name} | MCP Server | MCPServer.in`,
     description: server.description,
     openGraph: {
       title: server.name,
@@ -61,7 +69,11 @@ export async function generateMetadata({
       ],
     },
     alternates: {
-      canonical: `https://www.mcpserver.in/servers/${server.slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_URL || 'https://www.mcpserver.in'}/servers/${server.slug}`,
+    },
+    robots: {
+      index: isIndexable,
+      follow: isIndexable,
     },
   };
 }
@@ -70,8 +82,19 @@ export default async function ServerPage({ params }: PageProps) {
   const { slug } = await params;
   const server = await getServer(slug);
 
-  if (!server) {
+  if (!server || server.status === 'deleted') {
     notFound();
+  }
+
+  if (server.status !== 'active' || !server.verified) {
+    return (
+      <div className="container mx-auto py-16">
+        <h1 className="text-3xl font-bold mb-4">Server under review</h1>
+        <p className="text-muted-foreground">
+          This server is not published until its evidence has been verified.
+        </p>
+      </div>
+    );
   }
 
   const serverEvidence = await getServerEvidence(server.id);

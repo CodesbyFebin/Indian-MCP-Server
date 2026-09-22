@@ -11,8 +11,11 @@ const inter = Inter({
   display: 'swap',
 });
 
+const canonicalOrigin =
+  process.env.NEXT_PUBLIC_URL || 'https://www.mcpserver.in';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'https://www.mcpserver.in'),
+  metadataBase: new URL(canonicalOrigin),
   title: {
     default: 'MCPServer.in — India MCP Server Directory',
     template: `%s | MCPServer.in`,
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     locale: 'en-IN',
     type: 'website',
-    site: 'mcpserver.in',
+    siteName: 'MCPServer.in',
   },
   twitter: {
     card: 'summary_large_image',
@@ -38,11 +41,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.mcpserver.in',
-    languages: {
-      'en-IN': 'https://www.mcpserver.in/en-IN',
-      'hi-IN': 'https://www.mcpserver.in/hi-IN',
-    },
+    canonical: canonicalOrigin,
   },
 };
 
@@ -63,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} font-inter antialiased} bg-background text-foreground`}
       >

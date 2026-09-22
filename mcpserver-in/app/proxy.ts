@@ -6,13 +6,41 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { rateLimiters, checkRateLimit } from '@/lib/rate-limit/ratelimit';
 
+const CANONICAL_ORIGIN = 'https://www.mcpserver.in';
+const PRIVATE_PATHS = new Set([
+  '/(app)',
+  '/(app)/dashboard',
+  '/(app)/servers',
+  '/(app)/deploy',
+  '/(app)/credentials',
+  '/(app)/audit',
+  '/(app)/playground',
+]);
+
+function redirectWithCanonicalPath(request: NextRequest, pathname: string) {
+  const url = request.nextUrl.clone();
+  url.pathname = pathname;
+  url.host = 'www.mcpserver.in';
+  url.protocol = 'https:';
+  return NextResponse.redirect(url, 308);
+}
+
 export async function proxy(request: NextRequest) {
   const url = request.nextUrl;
   const startTime = Date.now();
 
-  // ============================================================
-  // Rate Limiting — Anonymous for non-auth routes
-  // ============================================================
+  if (url.hostname !== CANONICAL_ORIGIN) {
+    return redirectWithCanonicalPath(request, url.pathname);
+  }
+
+  if (PRIVATE_PATHS.has(url.pathname)) {
+    const response = NextResponse.rewrite(
+      new URL('/api/auth/signin', request.url),
+      { status: 404 },
+    );
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    return response;
+  }
 
   if (url.pathname.startsWith('/api/')) {
     const ip = request.ip || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';

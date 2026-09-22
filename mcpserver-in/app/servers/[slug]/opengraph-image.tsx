@@ -3,7 +3,7 @@
 // This is the Open Graph image for server pages
 
 import { ImageResponse } from 'next/og';
-import { ServerType } from '@/lib/db/schema';
+import type { Server as ServerType } from '@/lib/db/schema';
 import { db } from '@/lib/db';
 
 const interBold = fetch(
@@ -20,7 +20,7 @@ export async function generateImageMetadata({
     where: { slug },
   });
 
-  if (!server) {
+  if (!server || server.status !== 'active' || !server.verified) {
     return [];
   }
 
@@ -45,9 +45,9 @@ export default async function OgImage({
     where: { slug },
   });
 
-  if (!server) {
+  if (!server || server.status !== 'active' || !server.verified) {
     return new ImageResponse(
-      <div style={{ fontSize: 48, color: 'white', background: 'red' }}>Server not found</div>,
+      <div style={{ fontSize: 48, color: 'white', background: 'red' }}>Server not published</div>,
       { width: 1200, height: 630 },
     );
   }
@@ -71,9 +71,7 @@ export default async function OgImage({
         <div style={{ fontSize: '56px', fontWeight: 700, fontFamily: 'Inter', marginBottom: '16px' }}>
           {server.name}
         </div>
-        {server.verified && (
-          <div style={{ fontSize: '24px', opacity: 0.9 }}>Verified MCP Server</div>
-        )}
+        <div style={{ fontSize: '24px', opacity: 0.9 }}>Verified MCP Server</div>
       </div>
     ),
     {

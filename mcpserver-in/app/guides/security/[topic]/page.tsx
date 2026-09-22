@@ -2,6 +2,7 @@
 // Security guides for MCP server deployment
 
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 const securityGuides: Record<string, { title: string; content: string[] }> = {
   'authentication': {
@@ -39,8 +40,22 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ topic: string }> }): Promise<Metadata> {
   const { topic } = await params;
   const guide = securityGuides[topic];
-  if (!guide) return { title: 'Not Found | MCPServer.in' };
-  return { title: `${guide.title} — Security Guide | MCPServer.in` };
+  if (!guide) {
+    return {
+      title: 'Not Found | MCPServer.in',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+  return {
+    title: `${guide.title} — Security Guide | MCPServer.in`,
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
 }
 
 export default async function SecurityGuidePage({ params }: { params: Promise<{ topic: string }> }) {
@@ -48,7 +63,7 @@ export default async function SecurityGuidePage({ params }: { params: Promise<{ 
   const guide = securityGuides[topic];
 
   if (!guide) {
-    return <div className="container mx-auto py-16"><h1>Guide Not Found</h1></div>;
+    notFound();
   }
 
   return (

@@ -1,8 +1,17 @@
 // app/not-found.tsx
 // 404 page
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Home, Search } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | MCPServer.in',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (

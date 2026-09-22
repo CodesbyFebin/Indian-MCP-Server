@@ -57,6 +57,10 @@ export async function generateMetadata({
     description: category
       ? `Browse ${category} MCP servers with evidence-backed claims.`
       : 'Directory of certified MCP servers for the India region.',
+    robots: {
+      index: !category,
+      follow: true,
+    },
   };
 }
 

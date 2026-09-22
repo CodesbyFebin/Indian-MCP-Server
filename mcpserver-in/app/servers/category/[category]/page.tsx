@@ -6,6 +6,7 @@ import { db } from '@/lib/db';
 import { servers } from '@/lib/db/schema';
 import { ServersTable, ServersTableLoading } from '@/components/servers-table';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: Promise<{ category: string }>;
@@ -17,6 +18,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${category} MCP Servers | MCPServer.in`,
     description: `Browse ${category} MCP servers with evidence-backed claims.`,
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 
@@ -33,10 +38,19 @@ export default async function CategoryPage({ params }: PageProps) {
   const { category } = await params;
 
   const serverList = await db.query.servers.findMany({
-    where: (s, { eq }) => eq(s.category, category),
+    where: (s, { and, eq }) =>
+      and(
+        eq(s.category, category),
+        eq(s.status, 'active'),
+        eq(s.verified, true),
+      ),
     orderBy: (s, { desc }) => desc(s.createdAt),
     limit: 50,
   });
+
+  if (serverList.length === 0) {
+    notFound();
+  }
 
   // Convert DB objects to plain types
   const plainServers = serverList.map((s) => ({
@@ -62,7 +76,7 @@ export default async function CategoryPage({ params }: PageProps) {
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6">{category} MCP Servers</h1>
       <p className="text-muted-foreground mb-8">
-        Discovered {plainServers.length} servers in this category.
+        Discovered {plainServers.length} verified servers in this category.
       </p>
       <Suspense fallback={<ServersTableLoading />}>
         <ServersTable servers={plainServers} />

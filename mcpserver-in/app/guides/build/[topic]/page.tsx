@@ -2,6 +2,7 @@
 // Build guides for MCP server development
 
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 const buildGuides: Record<string, { title: string; content: string[] }> = {
   'getting-started': {
@@ -52,8 +53,22 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { topic } = await params;
   const guide = buildGuides[topic];
-  if (!guide) return { title: 'Not Found | MCPServer.in' };
-  return { title: `${guide.title} — Build Guide | MCPServer.in` };
+  if (!guide) {
+    return {
+      title: 'Not Found | MCPServer.in',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+  return {
+    title: `${guide.title} — Build Guide | MCPServer.in`,
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
 }
 
 export default async function BuildGuidePage({ params }: PageProps) {
@@ -61,11 +76,7 @@ export default async function BuildGuidePage({ params }: PageProps) {
   const guide = buildGuides[topic];
 
   if (!guide) {
-    return (
-      <div className="container mx-auto py-16">
-        <h1>Guide Not Found</h1>
-      </div>
-    );
+    notFound();
   }
 
   return (

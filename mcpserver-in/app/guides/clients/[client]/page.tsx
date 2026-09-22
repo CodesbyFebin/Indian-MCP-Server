@@ -2,6 +2,7 @@
 // Client-specific setup guides
 
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 const clientGuides: Record<string, { name: string; steps: string[]; downloadLink?: string }> = {
   'claude-desktop': {
@@ -56,10 +57,22 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { client } = await params;
   const guide = clientGuides[client];
-  if (!guide) return { title: 'Not Found | MCPServer.in' };
+  if (!guide) {
+    return {
+      title: 'Not Found | MCPServer.in',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
   return {
     title: `${guide.name} Setup Guide | MCPServer.in`,
     description: `Step-by-step guide to configure ${guide.name} with MCP servers.`,
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
@@ -68,14 +81,7 @@ export default async function ClientGuidePage({ params }: PageProps) {
   const guide = clientGuides[client];
 
   if (!guide) {
-    return (
-      <div className="container mx-auto py-16">
-        <h1 className="text-2xl font-bold mb-4">Guide Not Found</h1>
-        <p className="text-muted-foreground">
-          No setup guide available for "{client}".
-        </p>
-      </div>
-    );
+    notFound();
   }
 
   return (
