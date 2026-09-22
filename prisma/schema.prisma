@@ -1,0 +1,770 @@
+// prisma/schema.prisma
+// MCPServer OS - Database Schema with Row Level Security (RLS)
+// Phase 2 - Identity & Tenancy Foundation (P0)
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+// ============================================================
+// Core Identity & Tenancy
+// ============================================================
+
+model Organization {
+  id            String     @id @default(uuid())
+  name          String
+  slug          String     @unique
+  description   String?
+  domain        String?    @unique
+  status        OrgStatus  @default(ACTIVE)
+  
+  // Tenancy
+  workspaces    Workspace[]
+  users         User[]
+  
+  // Billing
+  billingEmail  String?
+  subscription  Subscription?
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  deletedAt     DateTime?
+
+  @@index([slug])
+  @@index([domain])
+}
+
+model Workspace {
+  id            String     @id @default(uuid())
+  name          String
+  slug          String
+  description   String?
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  
+  // Environment
+  environments  Environment[]
+  
+  // Policy
+  policies      Policy[]
+  
+  // Deployments
+  deployments   Deployment[]
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@unique([organizationId, slug])
+  @@index([organizationId])
+}
+
+model Environment {
+  id            String     @id @default(uuid())
+  name          String
+  slug          String
+  workspaceId   String
+  workspace     Workspace  @relation(fields: [workspaceId], references: [id])
+  
+  // Runtime
+  type          EnvType    @default(DEVELOPMENT)
+  runtimeProvider String   @default("docker")
+  
+  // Deployments
+  deployments   Deployment[]
+  
+  // Secrets
+  secrets       Secret[]
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@unique([workspaceId, slug])
+  @@index([workspaceId])
+}
+
+model User {
+  id            String     @id @default(uuid())
+  email         String     @unique
+  name          String?
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  
+  // Auth
+  passwordHash  String
+  emailVerified DateTime?
+  
+  // Sessions
+  sessions      UserSession[]
+  
+  // API Tokens
+  apiTokens     ApiToken[]
+  
+  // Roles
+  role          UserRole   @default(MEMBER)
+  permissions   Permission[]
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  lastActiveAt  DateTime?
+
+  @@index([organizationId])
+  @@index([email])
+}
+
+// ============================================================
+// Authentication & Authorization
+// ============================================================
+
+model UserSession {
+  id            String     @id @default(uuid())
+  userId        String
+  user          User       @relation(fields: [userId], references: [id])
+  organizationId String
+  
+  // Token info
+  tokenHash     String     @unique
+  refreshTokenHash String?
+  
+  // Expiry
+  expiresAt     DateTime
+  createdAt     DateTime   @default(now())
+  lastUsedAt    DateTime   @default(now())
+  
+  // Device info
+  userAgent     String?
+  ipAddress     String?
+  deviceInfo    Json?
+  
+  // Revoked
+  revokedAt     DateTime?
+
+  @@index([userId])
+  @@index([organizationId])
+  @@index([expiresAt])
+}
+
+model ApiToken {
+  id            String     @id @default(uuid())
+  userId        String
+  user          User       @relation(fields: [userId], references: [id])
+  organizationId String
+  
+  // Token
+  name          String
+  tokenHash     String     @unique
+  prefix        String     // First 8 chars for identification
+  
+  // Permissions
+  scopes        String[]   // e.g., ["deployment:read", "evidence:write"]
+  allowedIps    String[]?
+  
+  // Expiry
+  expiresAt     DateTime?
+  createdAt     DateTime   @default(now())
+  lastUsedAt    DateTime?
+  
+  // Revocation
+  revokedAt     DateTime?
+  revokedBy     String?    // User ID who revoked
+
+  @@index([userId])
+  @@index([organizationId])
+  @@index([expiresAt])
+}
+
+model Policy {
+  id            String     @id @default(uuid())
+  name          String
+  description   String?
+  workspaceId   String
+  workspace     Workspace  @relation(fields: [workspaceId], references: [id])
+  
+  // Policy content
+  type          PolicyType
+  rules         Json
+  enabled       Boolean    @default(true)
+  
+  // Versioning
+  version       String
+  isDefault     Boolean    @default(false)
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  createdBy     String?    // User ID
+  updatedBy     String?    // User ID
+
+  @@index([workspaceId])
+  @@index([type])
+}
+
+// ============================================================
+// Deployment Engine
+// ============================================================
+
+model Deployment {
+  id            String     @id @default(uuid())
+  name          String
+  description   String?
+  workspaceId   String
+  workspace     Workspace  @relation(fields: [workspaceId], references: [id])
+  environmentId String
+  environment   Environment @relation(fields: [environmentId], references: [id])
+  
+  // Configuration
+  config        Json
+  configHash    String
+  
+  // State
+  status        DeploymentStatus @default(DRAFT)
+  
+  // Runtime
+  runtimeUrl    String?
+  instanceId    String?
+  
+  // Metadata
+  version       String
+  sourceRevision String?
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  createdBy     String?    // User ID
+  
+  // Relations
+  versions      DeploymentVersion[]
+  events        DeploymentEvent[]
+  evidence      EvidenceArtifact[] @relation("DeploymentEvidence")
+
+  @@index([workspaceId])
+  @@index([environmentId])
+  @@index([status])
+}
+
+model DeploymentVersion {
+  id            String     @id @default(uuid())
+  deploymentId  String
+  deployment    Deployment @relation(fields: [deploymentId], references: [id])
+  
+  // Version number
+  versionNumber Int
+  
+  // Configuration
+  config        Json
+  configHash    String
+  
+  // Status
+  status        DeploymentStatus @default(DRAFT)
+  
+  // Runtime
+  runtimeInfo   Json?
+  health        Json?
+  
+  // Evidence
+  evidenceIds   String[]   // Array of evidence artifact IDs
+  
+  // Secrets
+  secretRefs    String[]   // Array of secret references
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  deployedAt    DateTime?
+  completedAt   DateTime?
+  createdBy     String?
+
+  @@unique([deploymentId, versionNumber])
+  @@index([deploymentId])
+  @@index([status])
+}
+
+model DeploymentEvent {
+  id            String     @id @default(uuid())
+  deploymentId  String
+  deployment    Deployment @relation(fields: [deploymentId], references: [id])
+  
+  // Transition
+  fromStatus    DeploymentStatus
+  toStatus      DeploymentStatus
+  
+  // Actor
+  actorType     ActorType
+  actorId       String?
+  
+  // Reason
+  reason        String
+  requestId     String
+  evidenceRef   String?
+  
+  // Metadata
+  metadata      Json?
+  
+  // Audit
+  timestamp     DateTime   @default(now())
+
+  @@index([deploymentId])
+  @@index([timestamp])
+  @@index([requestId])
+}
+
+// ============================================================
+// Evidence Ledger
+// ============================================================
+
+model EvidenceArtifact {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Resource identification
+  resourceType  String
+  resourceId    String
+  
+  // Evidence classification
+  evidenceType  EvidenceType
+  status        EvidenceStatus
+  
+  // Hash chain
+  sha256        String
+  previousArtifactHash String?  // Link to previous artifact
+  chainRootHash String         // Root hash of the chain
+  
+  // Provenance
+  sourceRevision String?
+  verifierVersion String?
+  
+  // Metadata
+  metadata      Json
+  
+  // Timestamps
+  collectedAt   DateTime   @default(now())
+  verifiedAt    DateTime?
+  expiresAt     DateTime?
+  
+  // Tenant isolation
+  workspaceId   String?    // Optional workspace scope
+  environmentId String?    // Optional environment scope
+  
+  // Relations
+  deploymentEvidence Deployment[] @relation("DeploymentEvidence")
+  reviews       EvidenceReview[]
+
+  @@index([organizationId])
+  @@index([resourceType, resourceId])
+  @@index([evidenceType])
+  @@index([status])
+  @@index([chainRootHash])
+  @@index([collectedAt])
+  @@index([expiresAt])
+}
+
+model EvidenceReview {
+  id            String     @id @default(uuid())
+  artifactId    String
+  artifact      EvidenceArtifact @relation(fields: [artifactId], references: [id])
+  organizationId String
+  
+  // Reviewer
+  reviewerId    String
+  reviewerType  ReviewerType
+  
+  // Review
+  status        EvidenceStatus
+  comments      String?
+  
+  // Evidence
+  evidenceAdded Json?
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  revokedAt     DateTime?
+
+  @@index([artifactId])
+  @@index([organizationId])
+  @@index([reviewerId])
+}
+
+model EvidenceCheckpoint {
+  id            String     @id @default(uuid())
+  organizationId String
+  chainRootHash String     // Root hash at checkpoint time
+  
+  // Timing
+  createdAt     DateTime   @default(now())
+  createdBy     String
+  
+  // Anchoring (optional)
+  externalAnchor Json?     // Blockchain, timestamp service, etc.
+  
+  // Artifact count
+  artifactCount Int
+
+  @@index([organizationId])
+  @@index([chainRootHash])
+  @@index([createdAt])
+}
+
+// ============================================================
+// Secret Management
+// ============================================================
+
+model Secret {
+  id            String     @id @default(uuid())
+  organizationId String
+  environmentId String?
+  environment   Environment? @relation(fields: [environmentId], references: [id])
+  
+  // Identification
+  name          String
+  path          String     // Provider-specific path
+  provider      SecretProvider
+  
+  // Metadata (NOT the actual secret value)
+  metadata      Json
+  
+  // Versioning
+  version       String
+  previousRefs  String[]   // Previous secret reference IDs
+  
+  // Lifecycle
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  expiresAt     DateTime?
+  revokedAt     DateTime?
+  revokedBy     String?    // User ID
+  
+  // Access tracking
+  accessCount   Int        @default(0)
+  lastAccessedAt DateTime?
+  
+  // Rotation
+  rotationPeriod Int?      // Days, null = no auto-rotation
+  
+  // Audit
+  createdBy     String
+  updatedBy     String?
+
+  @@unique([organizationId, environmentId, name])
+  @@index([organizationId])
+  @@index([provider])
+  @@index([expiresAt])
+  @@index([revokedAt])
+}
+
+// ============================================================
+// RBI Technical Control Profile
+// ============================================================
+
+model ControlMapping {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Framework
+  framework     ControlFramework
+  controlId     String     // e.g., "RBI-001"
+  controlName   String
+  
+  // Status
+  status        ControlStatus
+  
+  // Evidence
+  evidenceIds   String[]   // Array of evidence artifact IDs
+  lastVerifiedAt DateTime?
+  nextReviewAt   DateTime?
+  
+  // Metadata
+  notes         String?
+  metadata      Json?
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  verifiedBy    String?
+
+  @@index([organizationId, framework, controlId])
+  @@index([status])
+  @@index([nextReviewAt])
+}
+
+model EvidencePackage {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Package info
+  name          String
+  framework     ControlFramework
+  controlIds    String[]
+  
+  // Generation
+  generatedAt   DateTime   @default(now())
+  generatedBy   String
+  
+  // Content
+  evidenceArtifactIds String[]  // All evidence in this package
+  controlMappings     Json      // Control status mapping
+  hashChainRoot       String    // Hash chain root at package time
+  
+  // Format
+  format        PackageFormat
+  downloadUrl   String?
+  
+  // Status
+  status        PackageStatus
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  expiresAt     DateTime?
+
+  @@index([organizationId])
+  @@index([framework])
+  @@index([generatedAt])
+}
+
+// ============================================================
+// India Evidence Pack Tables
+// ============================================================
+
+model PIIAuditLog {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Request info
+  requestId     String
+  endpoint      String
+  method        String
+  userId        String?
+  
+  // PII detection
+  piiPatterns   Json       // Detected PII patterns
+  fieldsRedacted String[]  // Fields that were redacted
+  originalCount Int        // Number of PII instances found
+  redactedCount Int        // Number successfully redacted
+  
+  // Timing
+  processedAt   DateTime   @default(now())
+  processingMs  Int?
+  
+  // Evidence
+  evidenceId    String?    // Link to evidence artifact
+
+  @@index([organizationId])
+  @@index([requestId])
+  @@index([processedAt])
+}
+
+model UPITransactionLog {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Transaction info
+  transactionId String
+  amount        String
+  currency      String
+  status        String
+  
+  // UPI details
+  vpa           String?    // Virtual Payment Address (redacted in storage)
+  upiBankRef    String?    // Bank reference ID
+  
+  // API details
+  requestId     String?
+  provider      String
+  endpoint      String
+  
+  // Evidence
+  evidenceId    String?
+  
+  // Audit
+  createdAt     DateTime   @default(now())
+  completedAt   DateTime?
+
+  @@index([organizationId])
+  @@index([transactionId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model KYCVerificationLog {
+  id            String     @id @default(uuid())
+  organizationId String
+  
+  // Verification info
+  verificationId String
+  userId        String
+  verifierType  String     // "OVSE", "UIDAI", "MANUAL"
+  
+  // Status
+  status        String     // "SUCCESS", "FAILED", "PENDING"
+  
+  // Evidence
+  evidenceId    String?
+  evidenceRef   String?
+  
+  // Details (PII redacted)
+  documentType  String?
+  country       String?
+  
+  // Audit
+  initiatedAt   DateTime   @default(now())
+  completedAt   DateTime?
+
+  @@index([organizationId])
+  @@index([verificationId])
+  @@index([userId])
+  @@index([status])
+}
+
+// ============================================================
+// Enums
+// ============================================================
+
+enum OrgStatus {
+  ACTIVE
+  SUSPENDED
+  PENDING
+  DELETED
+}
+
+enum EnvType {
+  DEVELOPMENT
+  STAGING
+  PRODUCTION
+  SANDBOX
+}
+
+enum UserRole {
+  OWNER
+  ADMIN
+  DEVELOPER
+  OPERATOR
+  VIEWER
+}
+
+enum PolicyType {
+  TOOL_ACCESS
+  NETWORK
+  DEPLOYMENT
+  SECURITY
+  COMPLIANCE
+}
+
+enum DeploymentStatus {
+  DRAFT
+  SOURCE_RESOLUTION
+  ARTIFACT_VERIFICATION
+  SECURITY_SCAN
+  POLICY_EVALUATION
+  PENDING_APPROVAL
+  QUEUED
+  BUILDING
+  DEPLOYING
+  STARTING
+  HEALTH_CHECKING
+  RUNNING
+  VALIDATION_FAILED
+  POLICY_DENIED
+  BUILD_FAILED
+  DEPLOY_FAILED
+  HEALTH_FAILED
+  DEGRADED
+  ROLLBACK_REQUIRED
+  ROLLED_BACK
+  STOPPED
+}
+
+enum ActorType {
+  USER
+  SYSTEM
+  AI_AGENT
+  API_KEY
+}
+
+enum EvidenceType {
+  CONFIG
+  SOURCE
+  SCAN
+  RUNTIME
+  LOG
+  APPROVAL
+  ATTESTATION
+  MANUAL
+}
+
+enum EvidenceStatus {
+  COLLECTED
+  VERIFIED
+  PARTIAL
+  STALE
+  REJECTED
+  PENDING_REVIEW
+}
+
+enum ReviewerType {
+  AUTOMATED
+  HUMAN
+  AI_ASSISTED
+}
+
+enum SecretProvider {
+  LOCAL_ENCRYPTED
+  VAULT
+  AWS_SECRETS
+  KUBERNETES
+  AZURE_KEYVAULT
+}
+
+enum ControlFramework {
+  DPDP
+  RBI
+  ISO_27001
+  SOC2
+  HIPAA
+}
+
+enum ControlStatus {
+  IMPLEMENTED
+  PARTIALLY_IMPLEMENTED
+  NOT_IMPLEMENTED
+  REVIEW_PENDING
+  NON_APPLICABLE
+}
+
+enum PackageFormat {
+  JSON
+  PDF
+  CSV
+  HTML
+}
+
+enum PackageStatus {
+  GENERATING
+  READY
+  EXPIRED
+  FAILED
+}
+
+// ============================================================
+// Row Level Security (RLS) Configuration
+// ============================================================
+// Note: RLS is configured via SQL migrations, not Prisma schema.
+// The extensions below enable RLS support.
+//
+// Example RLS SQL for evidence_artifacts:
+//
+// CREATE POLICY "tenant_isolation" ON "EvidenceArtifact"
+//   FOR ALL
+//   USING (organization_id = current_setting('app.current_org_id')::uuid);
+//
+// CREATE POLICY "workspace_isolation" ON "EvidenceArtifact"
+//   FOR ALL
+//   USING (workspace_id IS NULL OR workspace_id = current_setting('app.current_workspace_id')::uuid);
+//
+// ALTER TABLE "EvidenceArtifact" ENABLE ROW LEVEL SECURITY;
