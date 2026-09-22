@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import { organizationJsonLd } from "@/seo/schema";
 
 export const metadata = {
   title: "MCPserver.in — Public Authority for MCP Discovery",
@@ -14,6 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Canonical Organization node (@id referenced by every page's publisher/author) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
           <header className="border-b border-slate-200 dark:border-slate-800">
             <div className="container mx-auto py-4">

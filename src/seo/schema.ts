@@ -25,6 +25,30 @@ export interface SeoEntry {
   reviewedAt?: string;
 }
 
+/**
+ * Canonical @id for the publisher Organization node. Every schema below
+ * references this same @id in its publisher/author property instead of
+ * inlining a fresh Organization object, so the JSON-LD across pages forms
+ * one connected graph rather than N disconnected copies of the same entity.
+ */
+export const ORG_ID = `${CANONICAL_ORIGIN}/#org`;
+
+/** Canonical Organization node. Emit this once (e.g. in the root layout). */
+export function organizationJsonLd(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: "MCPserver.in",
+    url: CANONICAL_ORIGIN,
+  };
+}
+
+/** Reference to the canonical Organization node, for use in publisher/author fields. */
+function orgRef(): Record<string, unknown> {
+  return { "@id": ORG_ID };
+}
+
 /** Base SoftwareApplication / WebSite entity for the platform. */
 export function siteSoftwareJsonLd(): Record<string, unknown> {
   return {
@@ -36,11 +60,7 @@ export function siteSoftwareJsonLd(): Record<string, unknown> {
     operatingSystem: "Web",
     description:
       "Public authority for MCP server discovery with evidence-backed verification.",
-    publisher: {
-      "@type": "Organization",
-      name: "MCPserver.in",
-      url: CANONICAL_ORIGIN,
-    },
+    publisher: orgRef(),
   };
 }
 
@@ -58,19 +78,11 @@ export function articleJsonLd(entry: SeoEntry): Record<string, unknown> {
       "@type": "WebPage",
       "@id": url,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "MCPserver.in",
-      url: CANONICAL_ORIGIN,
-    },
+    publisher: orgRef(),
     inLanguage: "en",
     datePublished: entry.reviewedAt || undefined,
     dateModified: entry.reviewedAt || undefined,
-    author: {
-      "@type": "Organization",
-      name: "MCPserver.in Editorial",
-      url: CANONICAL_ORIGIN,
-    },
+    author: orgRef(),
   };
   if (entry.faq && entry.faq.length > 0) {
     base.mainEntity = {
