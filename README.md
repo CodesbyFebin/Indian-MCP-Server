@@ -1,30 +1,50 @@
 # MCPServer OS
 
-Open-source, self-hosted control plane for MCP infrastructure.
+Evidence-first control plane for Model Context Protocol infrastructure.
 
-> This repository contains the MCPServer OS foundation: shared contracts, PostgreSQL schema, control-plane API, MCP gateway, Docker Compose deployment, and CI.
+Deploy · Govern · Observe · Audit · Recover
+
+> **Product split**
+>
+> - [mcpserver.in](https://mcpserver.in) — public discovery and evidence
+> - [app.mcpserver.in](https://app.mcpserver.in) — execution / governance control plane (this repository)
+
+This repository is **not** the canonical public MCP directory. Imported web routes that still look like a directory are residual source-branch surfaces and must not replace [mcpserver.in](https://mcpserver.in).
 
 ## Status
 
-🚧 Foundation / PR #1
+Foundation import from `CodesbyFebin/mcp-servers-master` branch `kilo/orbital-eagle-zbx` (`f0010c7862b327429457e4305ba9fe233a56ccab`).
+
+Not production-ready. See `reports/` for evidence.
+
+## Layout
+
+```
+app-mcpserver-in/   control-plane monorepo (packages, services, apps, deploy)
+tools/              provenance copies of branch-level DPDP / UPI artifacts
+docs/               OS-level documentation
+reports/            forensic audit and migration evidence
+```
 
 ## Quick start
 
 ```bash
 corepack enable
-pnpm install
-pnpm dev
+cd app-mcpserver-in
+pnpm install --frozen-lockfile
+pnpm compile
 ```
 
-For the containerized stack:
+Container stack (imported; not yet production-validated):
 
 ```bash
-cd deploy/compose
-cp .env.example .env
-docker compose up --build
+cd app-mcpserver-in/deploy/docker
+docker compose config
 ```
 
-See `docs/DEVELOPMENT.md` and `docs/ARCHITECTURE.md` for details.
+## Language
+
+This product maps **technical evidence**. It does not grant legal certification, UIDAI approval, RBI compliance, or DPDP certification.
 
 ## License
 

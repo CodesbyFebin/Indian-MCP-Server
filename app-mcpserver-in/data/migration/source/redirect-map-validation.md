@@ -1,0 +1,732 @@
+# Redirect Map Validation Report
+
+**Generated**: 2026-08-23T04:10:02.611Z
+**Total Redirects**: 676
+**Source**: milestone-7-indexed-equity.csv + glossary-migration.csv
+
+## Summary
+
+| Metric | Count |
+|--------|-------|
+| Total redirect rules | 676 |
+| P0 (Critical) | 9 |
+| P1 (High) | 317 |
+| P2 (Medium) | 350 |
+| P3 (Low) | 0 |
+| 301 Redirects | 674 |
+| No Redirect (Canonical) | 2 |
+| Duplicate legacy paths | 0 |
+| Redirects to /404 | 0 |
+| Potential chains | 0 |
+
+## Issues Found
+
+### Redirects to /404 (Unmapped Legacy URLs)
+None
+
+### Potential Redirect Chains
+None
+
+## P0 Redirects (Must Validate)
+- `/directory/databases` -> `/servers` [301]
+- `/directory/devops` -> `/servers` [301]
+- `/directory/iot` -> `/servers` [301]
+- `/directory/monitoring` -> `/servers` [301]
+- `/mcp-host` -> `/learn/mcp-architecture` [301]
+- `/mcp-server` -> `/learn/mcp-server` [301]
+- `/mcp-server-directory` -> `/servers` [301]
+- `/mcp-tools` -> `/learn/mcp-tools` [301]
+- `/what-is-mcp` -> `/learn/model-context-protocol` [301]
+
+## P1 Redirects (High Priority)
+- `/best/mcp-servers` -> `/guides/best-mcp-servers` [301]
+- `/best/mcp-servers-for-developers` -> `/guides/best-mcp-servers` [301]
+- `/compare/docker-mcp-server-vs-kubernetes-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/jira-mcp-server-vs-linear-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/local-vs-remote-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/mcp-vs-openapi` -> `/compare/[slug]` [301]
+- `/compare/postman-mcp-server-vs-swagger-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/python-vs-typescript-mcp` -> `/compare/[slug]` [301]
+- `/compare/redis-mcp-server-vs-mongodb-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/sentry-mcp-server-vs-datadog-mcp-server` -> `/compare/[slug]` [301]
+- `/compare/stdio-vs-streamable-http` -> `/compare/[slug]` [301]
+- `/compare/vercel-mcp-server-vs-cloudflare-mcp-server` -> `/compare/[slug]` [301]
+- `/complete-guide-mcp-servers` -> `/guides/best-mcp-servers` [301]
+- `/databases/bigquery-mcp-server` -> `/guides/mcp-servers-for-databases` [301]
+- `/databases/firebase-mcp-server` -> `/guides/mcp-servers-for-databases` [301]
+- `/databases/postgresql-mcp-server` -> `/guides/mcp-servers-for-databases` [301]
+- `/glossary/agent` -> `/glossary/[slug]` [301]
+- `/glossary/alignment` -> `/glossary/[slug]` [301]
+- `/glossary/asr` -> `/glossary/[slug]` [301]
+- `/glossary/bigquery-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/bpe` -> `/glossary/[slug]` [301]
+- `/glossary/chain-of-thought` -> `/glossary/[slug]` [301]
+- `/glossary/chromadb-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/clickhouse-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/context-window` -> `/glossary/[slug]` [301]
+- `/glossary/cosine-similarity` -> `/glossary/[slug]` [301]
+- `/glossary/crewai-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/cve-management` -> `/glossary/[slug]` [301]
+- `/glossary/datadog-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/docker-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/dpdp` -> `/glossary/[slug]` [301]
+- `/glossary/dynamodb-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/elasticsearch-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/embedding` -> `/glossary/[slug]` [301]
+- `/glossary/encryption-in-transit` -> `/glossary/[slug]` [301]
+- `/glossary/few-shot-learning` -> `/glossary/[slug]` [301]
+- `/glossary/gateway` -> `/glossary/[slug]` [301]
+- `/glossary/github-actions-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/guardrails` -> `/glossary/[slug]` [301]
+- `/glossary/hallucination` -> `/glossary/[slug]` [301]
+- `/glossary/hardware-abstraction-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/hnsw` -> `/glossary/[slug]` [301]
+- `/glossary/inference` -> `/glossary/[slug]` [301]
+- `/glossary/kv-cache` -> `/glossary/[slug]` [301]
+- `/glossary/large-language-model` -> `/glossary/[slug]` [301]
+- `/glossary/llamaindex-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/llm-ops` -> `/glossary/[slug]` [301]
+- `/glossary/lm-studio-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/lora` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-collaboration` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-delegation` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-memory` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-orchestration` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-planning` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-agent-tools` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-alert-manager-68` -> `/glossary/mcp-alert-manager` [301]
+- `/glossary/mcp-alerting` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-analytics-platform-11` -> `/glossary/mcp-analytics-platform` [301]
+- `/glossary/mcp-api-client-78` -> `/glossary/mcp-api-client` [301]
+- `/glossary/mcp-api-gateway-14` -> `/glossary/mcp-api-gateway` [301]
+- `/glossary/mcp-api-gateway-140` -> `/glossary/mcp-api-gateway` [301]
+- `/glossary/mcp-async-validator-124` -> `/glossary/mcp-async-validator` [301]
+- `/glossary/mcp-audit-logger-103` -> `/glossary/mcp-audit-logger` [301]
+- `/glossary/mcp-auth-provider-18` -> `/glossary/mcp-auth-provider` [301]
+- `/glossary/mcp-auto-scaling-0` -> `/glossary/mcp-auto-scaling` [301]
+- `/glossary/mcp-autogen` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-autogpt` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-babyagi` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-batch-processing-34` -> `/glossary/mcp-batch-processing` [301]
+- `/glossary/mcp-bengali-support` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-bigcommerce` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-block-storage-22` -> `/glossary/mcp-block-storage` [301]
+- `/glossary/mcp-cache-layer-135` -> `/glossary/mcp-cache-layer` [301]
+- `/glossary/mcp-cache-layer-9` -> `/glossary/mcp-cache-layer` [301]
+- `/glossary/mcp-callback-handler-74` -> `/glossary/mcp-callback-handler` [301]
+- `/glossary/mcp-canary-deploy-40` -> `/glossary/mcp-canary-deploy` [301]
+- `/glossary/mcp-cancel` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-capability-negotiation` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-cdn-service-4` -> `/glossary/mcp-cdn-service` [301]
+- `/glossary/mcp-certificate-manager-48` -> `/glossary/mcp-certificate-manager` [301]
+- `/glossary/mcp-client` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-client-capabilities` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-compliance-checker-104` -> `/glossary/mcp-compliance-checker` [301]
+- `/glossary/mcp-config-map-46` -> `/glossary/mcp-config-map` [301]
+- `/glossary/mcp-container-registry-1` -> `/glossary/mcp-container-registry` [301]
+- `/glossary/mcp-container-registry-127` -> `/glossary/mcp-container-registry` [301]
+- `/glossary/mcp-cursor-editor` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-data-localization` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-data-migrator-60` -> `/glossary/mcp-data-migrator` [301]
+- `/glossary/mcp-data-pipeline-31` -> `/glossary/mcp-data-pipeline` [301]
+- `/glossary/mcp-data-validator-117` -> `/glossary/mcp-data-validator` [301]
+- `/glossary/mcp-database-service-23` -> `/glossary/mcp-database-service` [301]
+- `/glossary/mcp-datadog` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-decision-engine-111` -> `/glossary/mcp-decision-engine` [301]
+- `/glossary/mcp-dependency-check-107` -> `/glossary/mcp-dependency-check` [301]
+- `/glossary/mcp-disaster-recovery-57` -> `/glossary/mcp-disaster-recovery` [301]
+- `/glossary/mcp-discovery` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-dns-provider-3` -> `/glossary/mcp-dns-provider` [301]
+- `/glossary/mcp-dynamodb` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-elicitation` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-email-service-70` -> `/glossary/mcp-email-service` [301]
+- `/glossary/mcp-event-bus-6` -> `/glossary/mcp-event-bus` [301]
+- `/glossary/mcp-event-processor-63` -> `/glossary/mcp-event-processor` [301]
+- `/glossary/mcp-excel` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-experiment-tracker-37` -> `/glossary/mcp-experiment-tracker` [301]
+- `/glossary/mcp-file-storage-20` -> `/glossary/mcp-file-storage` [301]
+- `/glossary/mcp-file-watcher-75` -> `/glossary/mcp-file-watcher` [301]
+- `/glossary/mcp-freshdesk` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-function-orchestrator-53` -> `/glossary/mcp-function-orchestrator` [301]
+- `/glossary/mcp-gdpr` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-gitlab` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-graceful-shutdown` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-grafana-dashboards` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-graph-database-27` -> `/glossary/mcp-graph-database` [301]
+- `/glossary/mcp-graphql-gateway-79` -> `/glossary/mcp-graphql-gateway` [301]
+- `/glossary/mcp-health-check-43` -> `/glossary/mcp-health-check` [301]
+- `/glossary/mcp-hindi-support` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-http-cache-50` -> `/glossary/mcp-http-cache` [301]
+- `/glossary/mcp-hyperparameter-tune-38` -> `/glossary/mcp-hyperparameter-tune` [301]
+- `/glossary/mcp-identity-service-145` -> `/glossary/mcp-identity-service` [301]
+- `/glossary/mcp-identity-service-19` -> `/glossary/mcp-identity-service` [301]
+- `/glossary/mcp-india-banking` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-india-ecommerce` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-india-education` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-india-healthcare` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-india-latency` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-indian-languages` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-initialization` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-inspector` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-intercom` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-iso-27001` -> `/glossary/mcp-iso-27001` [NONE]
+- `/glossary/mcp-json-schema` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-key-rotation` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-key-value-store-26` -> `/glossary/mcp-key-value-store` [301]
+- `/glossary/mcp-license-checker-108` -> `/glossary/mcp-license-checker` [301]
+- `/glossary/mcp-liveness-probe-45` -> `/glossary/mcp-liveness-probe` [301]
+- `/glossary/mcp-load-balancer-15` -> `/glossary/mcp-load-balancer` [301]
+- `/glossary/mcp-log-aggregator-65` -> `/glossary/mcp-log-aggregator` [301]
+- `/glossary/mcp-log-rotation-99` -> `/glossary/mcp-log-rotation` [301]
+- `/glossary/mcp-logging-service-13` -> `/glossary/mcp-logging-service` [301]
+- `/glossary/mcp-message-broker-5` -> `/glossary/mcp-message-broker` [301]
+- `/glossary/mcp-message-router-62` -> `/glossary/mcp-message-router` [301]
+- `/glossary/mcp-metric-collector-66` -> `/glossary/mcp-metric-collector` [301]
+- `/glossary/mcp-metric-export-101` -> `/glossary/mcp-metric-export` [301]
+- `/glossary/mcp-milvus` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-ml-model-serving-156` -> `/glossary/mcp-ml-model-serving` [301]
+- `/glossary/mcp-ml-model-serving-30` -> `/glossary/mcp-ml-model-serving` [301]
+- `/glossary/mcp-model-registry-162` -> `/glossary/mcp-model-registry` [301]
+- `/glossary/mcp-monitoring-tool-12` -> `/glossary/mcp-monitoring-tool` [301]
+- `/glossary/mcp-newrelic` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-nosql-db-24` -> `/glossary/mcp-nosql-db` [301]
+- `/glossary/mcp-notification-service-69` -> `/glossary/mcp-notification-service` [301]
+- `/glossary/mcp-object-store-21` -> `/glossary/mcp-object-store` [301]
+- `/glossary/mcp-on-premise` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-p95-latency` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-params` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-pinecone` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-pm2-process-manager` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-policy-engine-109` -> `/glossary/mcp-policy-engine` [301]
+- `/glossary/mcp-polling-service-88` -> `/glossary/mcp-polling-service` [301]
+- `/glossary/mcp-private-cloud` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-process-monitor-97` -> `/glossary/mcp-process-monitor` [301]
+- `/glossary/mcp-process-restart-98` -> `/glossary/mcp-process-restart` [301]
+- `/glossary/mcp-progress` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-prometheus` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-prompt-argument` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-prompt-list-changed` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-pubsub-system-90` -> `/glossary/mcp-pubsub-system` [301]
+- `/glossary/mcp-push-notification-72` -> `/glossary/mcp-push-notification` [301]
+- `/glossary/mcp-qdrant` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-range-validator-121` -> `/glossary/mcp-range-validator` [301]
+- `/glossary/mcp-rbi-guidelines` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-readiness-probe-44` -> `/glossary/mcp-readiness-probe` [301]
+- `/glossary/mcp-reddit-api` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-reddit-pipeline` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-reddit-sentiment` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-reddit-trends` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-replication-service-58` -> `/glossary/mcp-replication-service` [301]
+- `/glossary/mcp-request-id` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-resource-contents` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-resource-list-changed` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-resource-template` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-resource-updated` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-result` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-retry-logic` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-roots` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-rule-engine-110` -> `/glossary/mcp-rule-engine` [301]
+- `/glossary/mcp-schema-registry-61` -> `/glossary/mcp-schema-registry` [301]
+- `/glossary/mcp-schema-validator-118` -> `/glossary/mcp-schema-validator` [301]
+- `/glossary/mcp-search-engine-10` -> `/glossary/mcp-search-engine` [301]
+- `/glossary/mcp-search-engine-136` -> `/glossary/mcp-search-engine` [301]
+- `/glossary/mcp-sebi-compliance` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-secret-management-2` -> `/glossary/mcp-secret-management` [301]
+- `/glossary/mcp-secrets-manager` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-security-scanner-105` -> `/glossary/mcp-security-scanner` [301]
+- `/glossary/mcp-self-hosted` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-server` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-serverless-func-52` -> `/glossary/mcp-serverless-func` [301]
+- `/glossary/mcp-sms-gateway-71` -> `/glossary/mcp-sms-gateway` [301]
+- `/glossary/mcp-soc-2` -> `/glossary/mcp-soc-2` [NONE]
+- `/glossary/mcp-socket-adapter-87` -> `/glossary/mcp-socket-adapter` [301]
+- `/glossary/mcp-sse-gateway-85` -> `/glossary/mcp-sse-gateway` [301]
+- `/glossary/mcp-ssl-terminator-49` -> `/glossary/mcp-ssl-terminator` [301]
+- `/glossary/mcp-stream-aggregator-64` -> `/glossary/mcp-stream-aggregator` [301]
+- `/glossary/mcp-stream-processing-159` -> `/glossary/mcp-stream-processing` [301]
+- `/glossary/mcp-stream-processing-33` -> `/glossary/mcp-stream-processing` [301]
+- `/glossary/mcp-subscription-manager-89` -> `/glossary/mcp-subscription-manager` [301]
+- `/glossary/mcp-sync-engine-59` -> `/glossary/mcp-sync-engine` [301]
+- `/glossary/mcp-systemd-service` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-task-queue-7` -> `/glossary/mcp-task-queue` [301]
+- `/glossary/mcp-task-runner-93` -> `/glossary/mcp-task-runner` [301]
+- `/glossary/mcp-teams` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-telugu-support` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-thread-pool-95` -> `/glossary/mcp-thread-pool` [301]
+- `/glossary/mcp-timeout` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-tool-error` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-tool-input-schema` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-tool-list-changed` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-tool-output-schema` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-tool-result` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-trace-collector-67` -> `/glossary/mcp-trace-collector` [301]
+- `/glossary/mcp-trace-export-102` -> `/glossary/mcp-trace-export` [301]
+- `/glossary/mcp-traffic-manager-16` -> `/glossary/mcp-traffic-manager` [301]
+- `/glossary/mcp-udp-proxy-83` -> `/glossary/mcp-udp-proxy` [301]
+- `/glossary/mcp-uri-scheme` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-vector-store-29` -> `/glossary/mcp-vector-store` [301]
+- `/glossary/mcp-vscode` -> `/glossary/[slug]` [301]
+- `/glossary/mcp-vulnerability-scan-106` -> `/glossary/mcp-vulnerability-scan` [301]
+- `/glossary/mcp-web-scraper-77` -> `/glossary/mcp-web-scraper` [301]
+- `/glossary/mcp-webhook-receiver-73` -> `/glossary/mcp-webhook-receiver` [301]
+- `/glossary/mcp-websocket-server-86` -> `/glossary/mcp-websocket-server` [301]
+- `/glossary/mcp-worker-pool-94` -> `/glossary/mcp-worker-pool` [301]
+- `/glossary/mcp-workflow-engine-8` -> `/glossary/mcp-workflow-engine` [301]
+- `/glossary/mcp-zed-editor` -> `/glossary/[slug]` [301]
+- `/glossary/milvus-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/new-relic-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/oauth` -> `/glossary/[slug]` [301]
+- `/glossary/pinecone-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/prometheus-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/prompt-engineering` -> `/glossary/[slug]` [301]
+- `/glossary/qdrant-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/rag` -> `/glossary/[slug]` [301]
+- `/glossary/react` -> `/glossary/[slug]` [301]
+- `/glossary/rlhf` -> `/glossary/[slug]` [301]
+- `/glossary/ros` -> `/glossary/[slug]` [301]
+- `/glossary/semantic-search` -> `/glossary/[slug]` [301]
+- `/glossary/simulation-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/sla-monitoring` -> `/glossary/[slug]` [301]
+- `/glossary/snowflake-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/splunk-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/stdio` -> `/glossary/[slug]` [301]
+- `/glossary/streamable-http` -> `/glossary/[slug]` [301]
+- `/glossary/supabase-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/system-prompt` -> `/glossary/[slug]` [301]
+- `/glossary/temperature` -> `/glossary/[slug]` [301]
+- `/glossary/terraform-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/tokenizer` -> `/glossary/[slug]` [301]
+- `/glossary/tool` -> `/glossary/[slug]` [301]
+- `/glossary/tool-calling` -> `/glossary/[slug]` [301]
+- `/glossary/top-p-nucleus-sampling` -> `/glossary/[slug]` [301]
+- `/glossary/vector-database` -> `/glossary/[slug]` [301]
+- `/glossary/vision-language-model` -> `/glossary/[slug]` [301]
+- `/glossary/weaviate-mcp` -> `/glossary/[slug]` [301]
+- `/glossary/whisper` -> `/glossary/[slug]` [301]
+- `/hosting` -> `/build/mcp-server` [301]
+- `/how-to-build-mcp-server` -> `/build/mcp-server` [301]
+- `/learn/dpdp-compliance-guide` -> `/learn/[slug]` [301]
+- `/learn/india-mcp-benchmarks` -> `/learn/[slug]` [301]
+- `/learn/indic-nlp-guide` -> `/learn/[slug]` [301]
+- `/learn/mcp-production-deployment` -> `/learn/[slug]` [301]
+- `/mcp-claude` -> `/clients/claude-desktop` [301]
+- `/mcp-industry-government-education` -> `/guides/enterprise-mcp` [301]
+- `/mcp-installation` -> `/build/mcp-server` [301]
+- `/mcp-sentiment-analysis` -> `/guides/mcp-search-research` [301]
+- `/mcp-server-hosting` -> `/build/mcp-server` [301]
+- `/p99` -> `/guides/state-of-mcp` [301]
+- `/security/api-keys` -> `/security/[slug]` [301]
+- `/security/audit-logging` -> `/security/[slug]` [301]
+- `/security/authorization` -> `/security/[slug]` [301]
+- `/security/oauth` -> `/security/[slug]` [301]
+- `/security/tool-poisoning` -> `/security/[slug]` [301]
+- `/servers/asana-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/azure-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/bitbucket-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/digitalocean-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/discord-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/docker-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/elasticsearch-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/figma-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/gitbook-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/github-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/google-calendar-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/google-cloud-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/google-docs-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/google-drive-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/google-gemini-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/grafana-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/jenkins-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/jira-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/mistral-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/newrelic-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/notion-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/pinecone-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/postgres-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/razorpay-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/redis-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/slack-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/sqlite-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/supabase-mcp-server` -> `/servers/[slug]` [301]
+- `/servers/swagger-mcp-server` -> `/servers/[slug]` [301]
+- `/state-of-mcp` -> `/guides/state-of-mcp` [301]
+- `/troubleshooting/claude-desktop-mcp-not-working` -> `/guides/[slug]` [301]
+- `/troubleshooting/cursor-mcp-not-working` -> `/guides/[slug]` [301]
+- `/troubleshooting/mcp-authentication-failed` -> `/guides/[slug]` [301]
+- `/troubleshooting/mcp-server-timeout` -> `/guides/[slug]` [301]
+- `/troubleshooting/mcp-stdio-error` -> `/guides/[slug]` [301]
+- `/troubleshooting/mcp-tools-not-appearing` -> `/guides/[slug]` [301]
+
+## P2/P3 Redirects (Lower Priority)
+- `/blog/aajtak-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/aiims-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/airtel-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/amazon-india-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/angel-broking-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/apollo-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/aubank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/axis-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/axis-bank-mcp-server` -> `/blog/[slug]` [301] (P2)
+- `/blog/best-mcp-server-tutorials` -> `/blog/[slug]` [301] (P2)
+- `/blog/bigbasket-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/billdesk-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/blinkit-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/bse-mcp-server-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/canara-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/chromadb-mcp-server-open-source` -> `/blog/[slug]` [301] (P2)
+- `/blog/cluster/getting-started` -> `/blog/[slug]` [301] (P2)
+- `/blog/cluster/integrations-tools` -> `/blog/[slug]` [301] (P2)
+- `/blog/cluster/security-production` -> `/blog/[slug]` [301] (P2)
+- `/blog/cluster/ugc-community-hub` -> `/blog/[slug]` [301] (P2)
+- `/blog/delhivery-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/dhan-mcp-fo-trading` -> `/blog/[slug]` [301] (P2)
+- `/blog/dhl-india-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/dunzo-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/ecom-express-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/federal-bank-mcp-kerala` -> `/blog/[slug]` [301] (P2)
+- `/blog/fedex-india-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/fivepaisa-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/flipkart-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/fortis-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/goibibo-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/google-pay-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/groww-mcp-investments` -> `/blog/[slug]` [301] (P2)
+- `/blog/hcl-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/hdfc-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/hdfc-ergo-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/hotstar-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/how-to-build-mcp-server-for-elasticsearch` -> `/blog/[slug]` [301] (P2)
+- `/blog/how-to-build-mcp-server-for-postgresql` -> `/blog/[slug]` [301] (P2)
+- `/blog/how-to-create-mcp-server-for-github` -> `/blog/[slug]` [301] (P2)
+- `/blog/how-to-deploy-mcp-server-to-production` -> `/blog/[slug]` [301] (P2)
+- `/blog/how-to-migrate-from-rag-to-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/icici-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/idfc-first-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/indian-railways-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/indusind-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/infosys-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/install-configure-first-mcp-server` -> `/blog/[slug]` [301] (P2)
+- `/blog/instamojo-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/irctc-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/jio-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/khatabook-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/kmc-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/makemytrip-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/manipal-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/matlab-mcp-server-integration-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-2026-roadmap` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-advanced-questions-expert-challenges` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-advanced-typescript-patterns` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-agent-squad` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-api-key-authentication` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-authentication-methods-comparison` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-automation-strategies` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-beginner-questions-no-question-too-small` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-beyond-2026-long-term-vision` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-books-essentials` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-ci-cd-pipeline-setup` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-cli-tools-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-client-libraries` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-cloud-deployment-comparison` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-coding-standards-style-guides` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-community-forums` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-compliance-gdpr-soc2` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-cross-platform-compatibility` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-cursor-ide-integration` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-database-connection-pooling` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-design-patterns-production` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-development-best-practices` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-devops-automating-server-management` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-documentation-resources` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-enterprise-large-scale-deployment` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-free-servers-open-source-list` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-future-predictions-expert-roundup` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-github-repositories` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-gitlab-ci-integration` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-innovations-latest-research` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-json-rpc-deep-dive` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-microservices-architecture` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-migration-stories-from-api-to-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-multi-agent-systems` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-nodejs-implementation` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-on-reddit` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-orchestration-managing-multiple-servers` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-policy-as-code` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-pricing-cost-comparison` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-python-sdk-tutorial` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-role-based-access-control` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-saas-platforms-deployment` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-security-risk-assessment` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-accessibility-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-advanced-techniques-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-alternatives-options-compared` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-beginner-tutorial-series` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-boilerplates-quick-start-collection` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-career-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-challenges-community-competitions` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-cheat-sheets` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-checklists-deployment-setup` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-ci-cd-with-github-actions` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-code-review-best-practices` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-code-snippets-community-library` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-community-join-the-conversation` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-comparison-side-by-side` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-conferences-event-calendar` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-configuration-files` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-contributing-to-open-source-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-contributors-hall-of-fame` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-controversies-addressing-concerns` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-debates-hot-topics` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-debugging-techniques` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-directory-complete-list` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-discord-live-chat-community` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-diversity-inclusion` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-documentation-community-wiki` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-documentation-sprint` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-ethics-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-examples-real-world-implementations` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-failures-lessons-learned` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-faq-community-answered` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-airtable` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-amazon-kinesis` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-apache-pulsar-geo` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-asana` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-box` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-crisp` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-discord` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-dropbox` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-event-driven-architecture` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-freshdesk` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-freshsales` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-gitlab-devops` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-google-drive` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-google-sheets` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-grpc-streaming` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-hubspot` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-ifttt` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-intercom` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-jira` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-kafka` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-make-com` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-monday` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-mongodb` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-msteams` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-nats` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-onedrive` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-outlook` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-pipedrive` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-pulsar` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-rabbitmq` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-razorpay` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-redis-streams` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-salesforce` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-sendgrid` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-shopify` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-slack` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-twilio` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-websocket-scale` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-woocommerce` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-workato` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-zapier` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-zendesk` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-for-zoom` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-forum-discussion-board` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-future-trends-workshop` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-hackathon-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-help-center-getting-assistance` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-kubernetes-deployment` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-local-meetup-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-meetups-local-events` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-mentorship-program` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-news-weekly-roundup` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-of-the-month-community-voting` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-on-macos` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-online-workshop-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-opinions-community-perspectives` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-performance-benchmarking` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-performance-optimization` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-predictions-community-forecasts` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-production-deployment-checklist` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-questions-unanswered-and-answered` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-resources-curated-links` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-reviews-user-ratings` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-showcase-community-projects` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-starter-kits-community-favorites` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-step-by-step-guides-wiki` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-support-where-to-find-help` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-sustainability-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-templates-download-and-customize` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-testing-strategies` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-tools-community-recommended` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-translation-initiative` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-updates-changelog-tracker` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-video-tutorials-youtube` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-server-webinars-recording-archive` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-serverless-architecture` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-startup-guide-budget` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-testing-before-deployment` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-threat-model` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-transport-methods` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-trends-what-s-exploding` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-troubleshooting-guide-community-solutions` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-tutorial-build-your-first-mcp-server` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-video-courses-ranked` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-vs-langchain` -> `/blog/[slug]` [301] (P2)
+- `/blog/mcp-workflow-automation` -> `/blog/[slug]` [301] (P2)
+- `/blog/model-context-protocol-beginner-guide` -> `/blog/[slug]` [301] (P2)
+- `/blog/moneycontrol-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/mybillbook-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/ndtv-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/nse-mcp-server-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/ola-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/oyo-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/paytm-mcp-server-india-payments` -> `/blog/[slug]` [301] (P2)
+- `/blog/phonepe-mcp-server-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/pnb-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/profit-books-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/rapido-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/razorpayx-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/redbus-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/reliance-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/sbi-mcp-server-india-banking` -> `/blog/[slug]` [301] (P2)
+- `/blog/screener-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/sebi-mcp-server-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/shadowfax-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/swiggy-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/tamil-maharaja-mcp-tn` -> `/blog/[slug]` [301] (P2)
+- `/blog/tcs-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/uber-india-mcp` -> `/blog/[slug]` [301] (P2)
+- `/blog/union-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/upstox-mcp-trading` -> `/blog/[slug]` [301] (P2)
+- `/blog/urbancompany-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/vi-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/wipro-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/yes-bank-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/yes-bank-mcp-server` -> `/blog/[slug]` [301] (P2)
+- `/blog/zerodha-mcp-server-trading-ai` -> `/blog/[slug]` [301] (P2)
+- `/blog/zoho-desk-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/zoho-inventory-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/zoho-projects-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/blog/zomato-mcp-india` -> `/blog/[slug]` [301] (P2)
+- `/deployment/aws` -> `/build/[slug]` [301] (P2)
+- `/deployment/google-cloud` -> `/build/[slug]` [301] (P2)
+- `/deployment/kubernetes` -> `/build/[slug]` [301] (P2)
+- `/deployment/railway` -> `/build/[slug]` [301] (P2)
+- `/deployment/self-hosted` -> `/build/[slug]` [301] (P2)
+- `/deployment/vercel` -> `/build/[slug]` [301] (P2)
+- `/docs/advanced` -> `/docs/[slug]` [301] (P2)
+- `/docs/comparisons` -> `/docs/[slug]` [301] (P2)
+- `/docs/comparisons/when-to-use-mcp` -> `/docs/[slug]` [301] (P2)
+- `/docs/compliance/audit-logging` -> `/docs/[slug]` [301] (P2)
+- `/docs/compliance/dpdp-checklist` -> `/docs/[slug]` [301] (P2)
+- `/docs/compliance/dpdp-compliance-guide` -> `/docs/[slug]` [301] (P2)
+- `/docs/compliance/rbi-compliance` -> `/docs/[slug]` [301] (P2)
+- `/docs/compliance/security-best-practices` -> `/docs/[slug]` [301] (P2)
+- `/docs/deployment/google-cloud-run` -> `/docs/[slug]` [301] (P2)
+- `/docs/deployment/kubernetes-deployment` -> `/docs/[slug]` [301] (P2)
+- `/docs/development/bigquery-integration` -> `/docs/[slug]` [301] (P2)
+- `/docs/development/elasticsearch-integration` -> `/docs/[slug]` [301] (P2)
+- `/docs/development/publishing` -> `/docs/[slug]` [301] (P2)
+- `/docs/development/snowflake-integration` -> `/docs/[slug]` [301] (P2)
+- `/docs/development/supabase-integration` -> `/docs/[slug]` [301] (P2)
+- `/docs/getting-started` -> `/docs/[slug]` [301] (P2)
+- `/docs/getting-started/managed-edge-hosting` -> `/docs/[slug]` [301] (P2)
+- `/docs/industry` -> `/docs/[slug]` [301] (P2)
+- `/docs/industry/education` -> `/docs/[slug]` [301] (P2)
+- `/docs/industry/gst-integration` -> `/docs/[slug]` [301] (P2)
+- `/docs/internationalization` -> `/docs/[slug]` [301] (P2)
+- `/docs/monitoring/observability-best-practices` -> `/docs/[slug]` [301] (P2)
+- `/docs/performance` -> `/docs/[slug]` [301] (P2)
+- `/docs/pricing/hidden-costs` -> `/docs/[slug]` [301] (P2)
+- `/docs/protocol` -> `/docs/[slug]` [301] (P2)
+- `/docs/protocol/tools` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/adyen-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/bitbucket-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/cassandra-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/chargebee-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/circleci-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/cohere-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/discord-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/dynamodb-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/elasticsearch-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/figma-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/firebase-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/fly-io-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/gitbook-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/google-drive-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/google-meet-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/google-search-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/hubspot-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/jenkins-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/kubernetes-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/linode-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/mailchimp-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/mongodb-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/ms-teams-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/mysql-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/neo4j-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/newrelic-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/notion-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/ollama-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/oracle-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/paddle-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/paypal-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/postgres-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/redis-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/render-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/sentry-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/sonarqube-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/sqlite-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/supabase-cloud-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/swagger-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/trello-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/vercel-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/woocommerce-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/xero-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/servers/zoom-mcp-server` -> `/docs/[slug]` [301] (P2)
+- `/docs/troubleshooting` -> `/docs/[slug]` [301] (P2)
+- `/docs/troubleshooting/common-issues` -> `/docs/[slug]` [301] (P2)
+- `/frameworks/fastmcp` -> `/build/[slug]` [301] (P2)
+- `/frameworks/spring-ai-mcp` -> `/build/[slug]` [301] (P2)
+- `/integrations/confluence-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/figma-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/github-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/gitlab-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/gmail-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/google-drive-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/hubspot-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/linear-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/n8n-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/notion-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/salesforce-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/sentry-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/shopify-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/integrations/wordpress-mcp-server` -> `/integrations/[slug]` [301] (P2)
+- `/sdk/go` -> `/build/[slug]` [301] (P2)
+- `/sdk/java` -> `/build/[slug]` [301] (P2)
+- `/sdk/python` -> `/build/[slug]` [301] (P2)
+- `/sdk/typescript` -> `/build/[slug]` [301] (P2)
+- `/tools/mcp-config-validator` -> `/build/[slug]` [301] (P2)
+- `/tools/mcp-sdk-workbench` -> `/build/[slug]` [301] (P2)
+
+---
+
+## Implementation Notes
+
+1. **Next.js Middleware/Headers**: Implement redirects via next.config.js async redirects() or middleware
+2. **Glossary numeric suffixes**: 101 redirects from /glossary/term-N to /glossary/term
+3. **Semantic protections**: 2 terms (mcp-soc-2, mcp-iso-27001) keep numeric suffix
+4. **Blog/docs/integrations**: P2 legacy collections - evaluate if content migration warranted
+5. **Server pages**: 29 legacy server pages but only 1 server in new registry - plan server onboarding
+
+---
+
+## Verification Checklist
+
+- [ ] All P0 redirects implemented in next.config.js
+- [ ] All P1 redirects implemented
+- [ ] No redirect chains (max 1 hop)
+- [ ] All target URLs return 200 OK
+- [ ] Sitemap.xml contains only new canonical URLs
+- [ ] Search Console: Submit redirect validation
+- [ ] Monitor 404s post-migration for 30 days

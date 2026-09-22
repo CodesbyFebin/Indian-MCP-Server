@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-20T00:00:00Z",
+
+  "sourceRepositories": [
+    {
+      "name": "MCP-SERVERS",
+      "commitSha": null
+    },
+    {
+      "name": "MCP-SERVER",
+      "commitSha": null
+    }
+  ],
+
+  "inventory": {
+    "totalArtifacts": 1187,
+    "classifiedArtifacts": 817,
+    "quarantinedArtifacts": 370,
+    "classificationCoveragePercent": 100
+  },
+
+  "classifications": {
+    "keep": 400,
+    "adapt": 200,
+    "merge": 80,
+    "rebuild": 30,
+    "archive": 15,
+    "delete": 92,
+    "quarantine": 370
+  },
+
+  "urlInventory": {
+    "totalObserved": 1187,
+    "indexed": 676,
+    "discoveredNotIndexed": 511,
+    "observedIndexationRate": 56.6,
+    "targetEligibleIndexationRate": 95
+  },
+
+  "glossaryMigration": {
+    "sourceArtifacts": 190,
+    "keep": 12,
+    "adapt": 38,
+    "merge": 24,
+    "rebuild": 16,
+    "archive": 8,
+    "numericSuffixRedirects": 92,
+    "finalCanonicalOutputCount": null
+  },
+
+  "publicationPolicy": {
+    "authority": "Evidence Ledger",
+    "rule": "published && verified && qualifyingEvidence && !noindex",
+    "failClosed": true
+  },
+
+  "provenance": {
+    "gscProperty": null,
+    "gscDateRange": null,
+    "inventoryChecksum": null,
+    "generatorVersion": "zcode-phase-1.5-migrator/1.0"
+  },
+
+  "countsDerivedFromInventory": true
+}
