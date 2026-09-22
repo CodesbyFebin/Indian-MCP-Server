@@ -1,7 +1,8 @@
+// packages/database/package.json
 {
   "name": "@mcpserver/database",
   "version": "0.1.0",
-  "description": "Database package with Prisma schema, migrations, and RLS policies",
+  "description": "Database schema, migrations, and Prisma client for MCPServer OS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,20 +11,22 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate deploy",
-    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:prod": "prisma migrate deploy",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.22.0",
+    "@prisma/client": "^5.10.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
-    "prisma": "^5.22.0",
+    "prisma": "^5.10.0",
     "typescript": "^5.4.0",
     "vitest": "^1.6.0",
-    "eslint": "^8.0.0"
+    "eslint": "^8.0.0",
+    "ts-node": "^10.9.2"
   }
 }
