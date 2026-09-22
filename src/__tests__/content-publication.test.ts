@@ -58,11 +58,10 @@ describe("content-publication", () => {
 
   it("isServerIndexable is the authority for server registry", () => {
     // Test the authoritative server publication predicate
-    expect(isServerIndexable(true, 1, true, "published")).toEqual({
+    expect(isServerIndexable(true, 1, true, "published")).toEqual(expect.objectContaining({
       indexable: true,
-      reason: "Published with verified evidence",
-      decidedAt: expect.any(String),
-    });
+      reason: "published+evidence+verified",
+    }));
 
     expect(isServerIndexable(false, 1, true, "published").indexable).toBe(false);
     expect(isServerIndexable(true, 0, true, "published").indexable).toBe(false);

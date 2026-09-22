@@ -3,8 +3,40 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+type ExecutionTrace = {
+  id?: string;
+  requestId?: string;
+  request_id?: string;
+  serverId?: string;
+  serverName?: string;
+  toolId?: string;
+  toolName?: string;
+  status?: string;
+  durationMs?: number;
+  duration?: number;
+  createdAt?: string;
+  args?: unknown;
+  result?: unknown;
+  error?: string;
+};
+
+const SENSITIVE_FIELD =
+  /(aadhaar|pan|gstin|phone|email|bank_account|upi_id|account_number|ifsc_code|vpa|password|token|secret|key)\s*[:=]\s*("[^"]*"|[^\s,}]+)/gi;
+
+function redactValue(value: unknown): unknown {
+  if (value == null) return value;
+  const raw = typeof value === 'string' ? value : JSON.stringify(value);
+  const redacted = raw.replace(SENSITIVE_FIELD, '$1: [REDACTED]');
+  if (typeof value === 'string') return redacted;
+  try {
+    return JSON.parse(redacted);
+  } catch {
+    return '[REDACTED]';
+  }
+}
+
 export default function TracePage() {
-  const [executions, setExecutions] = useState<any[]>([]);
+  const [executions, setExecutions] = useState<ExecutionTrace[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -33,18 +65,17 @@ export default function TracePage() {
       if (!response.ok) {
         throw new Error(`Failed to fetch executions: ${response.status}`);
       }
-      const data = await response.json();
-      
-      // Apply PII redaction if enabled
-      const processedData = redactPii 
-        ? data.map((execution: any) => ({
+      const data = (await response.json()) as ExecutionTrace[];
+
+      const processedData = redactPii
+        ? data.map((execution) => ({
             ...execution,
-            args: execution.args ? JSON.parse(JSON.stringify(execution.args).replace(/(aadhaar|pan|gstin|phone|email|bank_account|upi_id|account_number|ifsc_code|vpa|password|token|secret|key)\":\s*\"[^\"]*\"/g, '$1": "[REDACTED]"')) : execution.args,
-            result: execution.result ? JSON.parse(JSON.stringify(execution.result).replace(/(aadhaar|pan|gstin|phone|email|bank_account|upi_id|account_number|ifsc_code|vpa|password|token|secret|key)\":\s*\"[^\"]*\"/g, '$1": "[REDACTED]"')) : execution.result,
-            error: execution.error ? execution.error.replace(/(aadhaar|pan|gstin|phone|email|bank_account|upi_id|account_number|ifsc_code|vpa|password|token|secret|key)\s*[:=]\s*[^\s,}]+/g, '$1: [REDACTED]') : execution.error
+            args: redactValue(execution.args),
+            result: redactValue(execution.result),
+            error: typeof execution.error === 'string' ? String(redactValue(execution.error)) : execution.error,
           }))
         : data;
-      
+
       setExecutions(processedData);
     } catch (err) {
       setError((err as Error).message);
@@ -159,7 +190,7 @@ export default function TracePage() {
                 executions.map((exec) => (
                   <tr key={exec.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {new Date(exec.createdAt).toLocaleString()}
+                      {exec.createdAt ? new Date(String(exec.createdAt)).toLocaleString() : '—'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {exec.request_id || exec.id || 'N/A'}
