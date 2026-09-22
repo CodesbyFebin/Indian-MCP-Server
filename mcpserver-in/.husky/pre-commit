@@ -1,0 +1,11 @@
+// .husky/pre-commit
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+
+# Run type checking
+npx tsc --noEmit --pretty
+
+# Run unit tests
+npx vitest run --reporter=dot

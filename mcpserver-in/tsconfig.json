@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "lib": ["dom-localstorage", "dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "unlimitedArityExpandPotentialUnionIndexes": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "typescript-turbo",
+        "paths": {}
+      }
+    ],
+    "paths": {
+      "@/*": ["./"]
+    }
+  },
+  "include": [
+    "next.config.ts",
+    "eslint.config.mjs",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "scripts/**/*.ts"
+  ]
+}

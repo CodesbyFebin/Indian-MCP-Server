@@ -1,0 +1,6 @@
+{
+  "extends": ["@tsconfig/strictest-next"],
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "mcp-server-in": {
+    "pre-commit": [
+      "eslint --fix --max-warnings=0",
+      "tsc --noEmit --pretty",
+      "vitest run --reporter=dot"
+    ]
+  }
+}

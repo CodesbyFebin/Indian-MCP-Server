@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40.9% 98.0%;
+    --secondary: 210 40.9% 97.5%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40.9% 97.5%;
+    --muted-foreground: 215.4 16.9% 65.1%;
+    --accent: 210 40.9% 97.5%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 214.3 31% 91.4%;
+    --input: 214.3 31% 91.4%;
+    --ring: 222.2 47.4% 11.2%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 213.3 31% 97.5%;
+    --card: 222.2 47.4% 11.2%;
+    --popover: 222.2 47.4% 11.2%;
+    --primary: 210 40.9% 97.5%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.3 31% 18.4%;
+    --secondary-foreground: 213.3 31% 97.5%;
+    --muted: 217.3 31% 18.4%;
+    --muted-foreground: 215.4 16.9% 65.1%;
+    --accent: 217.3 31% 18.4%;
+    --accent-foreground: 213.3 31% 97.5%;
+    --border: 217.3 31% 18.4%;
+    --input: 217.3 31% 18.4%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer base {
+  /* Remove default list styles */
+  ol,
+  ul,
+  menu,
+  dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Keep text decent */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  /* Allow only the main container to overflow on mobile */
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+}

@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+/.pnpm
+/.pnpm-store
+
+# Build outputs
+/.next
+/.vercel
+/out
+/dist
+/build
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+
+# Database
+*.db
+*.db-journal
+.libsql
+postgres-data/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+
+# Testing
+/coverage
+.nyc_output
+playwright-report/
+test-results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Temp
+*.tmp

@@ -1,0 +1,10 @@
+{
+  "merges": [
+    "*.{js,jsx,ts,tsx}",
+    "!*.{md,mdx,json,css,scss,html}"
+  ],
+  "prettier": [
+    "npx prettier --write",
+    "npx eslint --fix"
+  ]
+}

@@ -1,0 +1,15 @@
+// app/.well-known/oauth-authorization-server/jwks.json
+// JSON Web Key Set for JWT verification
+
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "kid": "mcpserver-2026-01",
+      "use": "sig",
+      "alg": "RS256",
+      "n": "placeholder-modulus-in-production",
+      "e": "AQAB"
+    }
+  ]
+}
